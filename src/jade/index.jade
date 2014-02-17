@@ -1,0 +1,53 @@
+mixin navbar()
+  .navbar.navbar-inverse.navbar-fixed-top
+    .container.ng-cloak
+      .navbar-header
+        button.navbar-toggle(
+          type="button",
+          data-toggle="collapse",
+          data-target=".navbar-collapse")
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a(href="#").navbar-brand eatinGroup
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li.active: a(href="#") Home
+          li: a(href="#about") About
+          li: a(href="#contact") Contact
+
+mixin header()
+  meta(charset="utf-8")
+  title eatinGroup
+  meta(
+    name="viewport",
+    content="width=device-width, initial-scale=1.0")
+  link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css")
+  link(rel="stylesheet", href="static/master.css")
+  link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css")
+
+mixin js-files()
+  script(src="static/EventSource.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.js")
+  script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+  script(src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js")
+  +google-js("angular")
+  +google-js("angular-cookies")
+  +google-js("angular-loader")
+  +google-js("angular-resource")
+  +google-js("angular-route")
+  +google-js("angular-sanitize")
+  +google-js("angular-animate")
+  script(src="static/app.js")
+
+mixin google-js(file)
+  script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/" + file + ".js")
+
+!!! 5
+html(ng-app="myApp")
+  head
+    +header()
+  body(ng-controller="mainCtrl")
+    +navbar()
+    ng-view.ng-cloak
+    +js-files()

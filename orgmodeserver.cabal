@@ -1,0 +1,25 @@
+name:              orgmodeserver
+version:           0.0.0
+cabal-version:     >= 1.8
+build-type:        Simple
+
+Flag dev
+    Description:   Turn on development settings, like auto-reload templates.
+    Default:       False
+
+Flag library-only
+    Description:   Build for use with "yesod devel"
+    Default:       False
+
+executable         server
+    if flag(library-only)
+        Buildable: False
+
+    main-is:           server.hs
+    hs-source-dirs:    src/hs
+    build-depends:     base
+                     , scotty
+                     , wai-middleware-static
+                     , argparser
+
+    ghc-options:      -Wall -threaded -O2

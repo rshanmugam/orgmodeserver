@@ -1,0 +1,14 @@
+{
+  "name": "tsangular",
+  "version": "0.0.0",
+  "description": "tsangular tests",
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-typescript": "~0.2.4",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-jade": "~0.8.0"
+  }
+}

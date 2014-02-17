@@ -1,0 +1,5 @@
+.orgdoc(ng-controller="orgDocCtrl")
+    h1 {{ doc.title }}
+    .orgstatus {{ doc.status }}
+    .orgtext
+      p(ng-repeat="for par in doc.text") {{ par }}
