@@ -15,10 +15,7 @@ angular.module(
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when(
             '/home',
-            {templateUrl: '/static/views/groups.html'});
-        $routeProvider.when(
-            '/about',
-            {templateUrl: '/static/views/about.html'});
+            {templateUrl: '/static/views/orgdoc.html'});
         $routeProvider.otherwise({redirectTo: '/home'});
     }])
     .config(['serverEventProvider', function(serverEventProvider) {
