@@ -1,7 +1,7 @@
 {
-  "name": "tsangular",
+  "name": "orgDocClient",
   "version": "0.0.0",
-  "description": "tsangular tests",
+  "description": "orgdoc",
   "author": "",
   "license": "BSD-2-Clause",
   "devDependencies": {
