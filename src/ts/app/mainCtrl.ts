@@ -1,4 +1,4 @@
 
 angular.module('myApp')
-    .controller('mainCtrl', ["$scope", "$http", "serverEvent", function($scope, $http, serverEvent) {
+    .controller('mainCtrl', ["$scope", "$http", function($scope, $http) {
     }])

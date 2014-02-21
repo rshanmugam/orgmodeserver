@@ -9,7 +9,6 @@ angular.module(
     'ngRoute',
     'ngAnimate',
     'myApp.filters',
-    'myApp.services',
     'myApp.directives',
     ])
     .config(['$routeProvider', function($routeProvider) {
@@ -17,7 +16,4 @@ angular.module(
             '/home',
             {templateUrl: '/static/views/orgdoc.html'});
         $routeProvider.otherwise({redirectTo: '/home'});
-    }])
-    .config(['serverEventProvider', function(serverEventProvider) {
-        serverEventProvider.setSource('/updates');
     }]);

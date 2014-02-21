@@ -1,15 +1,42 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import Web.Scotty
+import qualified System.Directory as SD
+import System.Console.ArgParser
+import qualified Web.Scotty as SC
 import Network.Wai.Middleware.Static
 import qualified Data.Text.Lazy as T
 import Control.Monad.IO.Class (liftIO)
 import OrgMode
 
-import Data.Monoid (mconcat)
+main :: IO ()
+main = do
+  parser <- mkApp cmdParser
+  runApp parser $ \(Cmd root port) -> do
+    normPath <- SD.canonicalizePath root
+    SC.scotty port $ server normPath
 
-main = scotty 3000 $ do
-  middleware $ staticPolicy (noDots >-> hasPrefix "static/")
-  get "/doc" $ do
-    doc <- liftIO $ parseOrgFile "docs/evaluations.org" ["TODO"]
-    either (text . T.pack . show) json doc
+server :: String -> SC.ScottyM ()
+server root = do
+  SC.middleware $ staticPolicy
+    (   noDots
+    >-> hasPrefix "static/"
+    >-> addBase root
+    )
+  SC.get "/" $ do
+    SC.setHeader "Content-Type" "text/html"
+    SC.file $ norm "index.html"
+  SC.get "/doc" $ do
+    doc <- liftIO $ parseOrgFile (norm "docs/evaluations.org") ["TODO"]
+    either (SC.text . T.pack . show) SC.json doc
+ where
+  norm path = root ++ "/" ++ path
+
+data Cmd = Cmd
+    { cmdRootPath :: String
+    , cmdPort :: Int
+    }
+
+cmdParser :: ParserSpec Cmd
+cmdParser = Cmd
+    `parsedBy` reqPos "static-path"
+    `andBy` optFlag 3000 "port"

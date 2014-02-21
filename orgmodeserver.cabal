@@ -21,5 +21,9 @@ executable         server
                      , scotty
                      , wai-middleware-static
                      , argparser
+                     , orgmode
+                     , transformers
+                     , text
+                     , directory
 
     ghc-options:      -Wall -threaded -O2

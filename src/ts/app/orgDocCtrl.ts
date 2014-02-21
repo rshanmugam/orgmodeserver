@@ -3,6 +3,6 @@ angular.module('myApp')
 
         $http.get('/doc')
         .success(function(data, status, headers, config) {
-            $scope.doc = data.outline;
+            $scope.doc = data.Outline;
         });
     }])
