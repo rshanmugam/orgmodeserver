@@ -1,0 +1,6 @@
+h1 {{ doc.Title }}
+.orgstatus {{ doc.Status }}
+.orgtext
+  p(ng-repeat="parag in doc.Text") {{ parag }}
+ul
+  li.orgchildren(ng-repeat="doc in doc.Children", ng-include="'/static/views/orgdoclayer.html'")

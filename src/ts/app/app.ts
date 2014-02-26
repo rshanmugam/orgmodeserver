@@ -7,6 +7,7 @@ angular.module(
     'myApp',
     [
     'ngRoute',
+    'ngLocale',
     'ngAnimate',
     'myApp.filters',
     'myApp.directives',

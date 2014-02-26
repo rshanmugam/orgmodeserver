@@ -1,5 +1,2 @@
 .orgdoc(ng-controller="orgDocCtrl")
-    h1 {{ doc.title }}
-    .orgstatus {{ doc.status }}
-    .orgtext
-      p(ng-repeat="parag in doc.text") {{ parag }}
+  ng-include(src="'/static/views/orgdoclayer.html'")
