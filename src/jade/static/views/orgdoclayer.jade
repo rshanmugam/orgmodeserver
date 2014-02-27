@@ -1,5 +1,5 @@
 h1 {{ doc.Title }}
-.orgstatus {{ doc.Status }}
+  .orgstatus.btn.btn-primary.btn-sm(ng-show="doc.Status") {{ doc.Status }}
 .orgtext
   p(ng-repeat="parag in doc.Text") {{ parag }}
 ul

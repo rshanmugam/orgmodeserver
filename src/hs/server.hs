@@ -27,7 +27,7 @@ server root = do
     SC.setHeader "Content-Type" "text/html"
     SC.file $ norm "index.html"
   SC.get "/doc" $ do
-    doc <- liftIO $ parseOrgFile (norm "docs/evaluations.org") ["TODO"]
+    doc <- liftIO $ parseOrgFile (norm "docs/evaluations.org") ["TODO", "DONE"]
     either (SC.text . T.pack . show) SC.json doc
  where
   norm path = root ++ "/" ++ path

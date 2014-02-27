@@ -1,0 +1,27 @@
+* orgparser
+** TODO recognize lists
+   like these
+
+   - foo
+   - bar
+   - baz
+** TODO parse propoerties
+   like:
+
+   :PROPERTIES:
+   :EffortEstimated: 8:00
+   :EffortRemaining: 8:00
+   :END:
+** TODO parse closed
+   like:
+
+   CLOSED: [2013-08-09 ven. 11:52]
+* orgviewer
+** TODO display tags
+** TODO display properties in a table
+** TODO display lists
+** TODO display closed
+** TODO allow to open/close a node
+** TODO list available files
+** TODO on click -> view file
+** TODO allow comment on node
