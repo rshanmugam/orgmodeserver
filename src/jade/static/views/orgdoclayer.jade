@@ -1,6 +1,11 @@
 h1 {{ doc.Title }}
   .orgstatus.btn.btn-primary.btn-sm(ng-show="doc.Status") {{ doc.Status }}
 .orgtext
-  p(ng-repeat="parag in doc.Text") {{ parag }}
+  .nodeblock(ng-repeat="block in doc.Text")
+    ng-switch(on="block.tag")
+      p(ng-switch-when="Paragraph") {{ block.contents }}
+      p(ng-switch-when="ListBlock")
+        ul: li(ng-repeat="entry in block.contents")
+          {{ entry.Title }}
 ul
   li.orgchildren(ng-repeat="doc in doc.Children", ng-include="'/static/views/orgdoclayer.html'")
