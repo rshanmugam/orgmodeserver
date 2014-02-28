@@ -1,5 +1,14 @@
 h1 {{ doc.Title }}
-  .orgstatus.btn.btn-primary.btn-sm(ng-show="doc.Status") {{ doc.Status }}
+span.orgstatus.btn.btn-primary.btn-xs(ng-show="doc.Status") {{ doc.Status }}
+span.btn.btn-danger.btn-xs(ng-show="doc.CloseDate") Closed on {{ doc.CloseDate }}
+span.btn.btn-default.btn-xs(ng-repeat="tag in doc.Tags") {{ tag }}
+table.orgprops.table(ng-show="doc.Properties")
+  tr
+    th Property
+    th Value
+  tr(ng-repeat="prop in doc.Properties")
+    td {{ prop[0] }}
+    td {{ prop[1] }}
 .orgtext
   .nodeblock(ng-repeat="block in doc.Text")
     ng-switch(on="block.tag")

@@ -1,27 +1,40 @@
 * orgparser
-** TODO recognize lists
+** DONE recognize lists
+   CLOSED: [2014-02-27 jeu. 19:21]
    like these
 
    - foo
    - bar
    - baz
-** TODO parse propoerties
+** DONE parse propoerties
+   CLOSED: [2014-02-28 ven. 11:59]
    like:
 
    :PROPERTIES:
    :EffortEstimated: 8:00
    :EffortRemaining: 8:00
    :END:
-** TODO parse closed
+** DONE parse closed
+   CLOSED: [2014-02-27 jeu. 19:21]
    like:
 
    CLOSED: [2013-08-09 ven. 11:52]
+** TODO parse nested lists
 * orgviewer
-** TODO display tags
-** TODO display properties in a table
-** TODO display lists
-** TODO display closed
+** DONE display tags
+   CLOSED: [2014-02-28 ven. 14:14]
+** DONE display properties in a table
+   CLOSED: [2014-02-28 ven. 11:59]
+** DONE display lists
+   CLOSED: [2014-02-27 jeu. 19:21]
+** DONE display closed
+   CLOSED: [2014-02-28 ven. 11:59]
+** TODO display nested lists
 ** TODO allow to open/close a node
 ** TODO list available files
 ** TODO on click -> view file
+   rest url /doc/:id
 ** TODO allow comment on node
+** TODO allow to click on a tag
+   display a list of nodes with this tag (rest url: /doc/:id/tag/:tag)
+** TODO
