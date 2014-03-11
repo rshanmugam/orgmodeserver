@@ -1,4 +1,4 @@
-h1 {{ doc.Title }}
+h1(ng-click="foldCycle(doc)") {{ doc.Title }}
 span.orgstatus.btn.btn-primary.btn-xs(ng-show="doc.Status") {{ doc.Status }}
 span.btn.btn-danger.btn-xs(ng-show="doc.CloseDate") Closed on {{ doc.CloseDate }}
 span.btn.btn-default.btn-xs(ng-repeat="tag in doc.Tags") {{ tag }}
@@ -10,11 +10,6 @@ table.orgprops.table(ng-show="doc.Properties")
     td {{ prop[0] }}
     td {{ prop[1] }}
 .orgtext
-  .nodeblock(ng-repeat="block in doc.Text")
-    ng-switch(on="block.tag")
-      p(ng-switch-when="Paragraph") {{ block.contents }}
-      p(ng-switch-when="ListBlock")
-        ul: li(ng-repeat="entry in block.contents")
-          {{ entry.Title }}
-ul
+  .nodeblock(ng-repeat="block in doc.Text", ng-include="'/static/views/nodetext.html'")
+ul(ng-hide="doc.FoldStatus === 0")
   li.orgchildren(ng-repeat="doc in doc.Children", ng-include="'/static/views/orgdoclayer.html'")

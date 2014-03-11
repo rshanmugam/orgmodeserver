@@ -1,0 +1,6 @@
+ng-switch(on="block.tag")
+  p(ng-switch-when="Paragraph") {{ block.contents }}
+  p(ng-switch-when="ListBlock")
+    ul: li(ng-repeat="entry in block.contents")
+      {{ entry.Title }}
+      .nodeblock(ng-repeat="block in entry.Content", ng-include="'/static/views/nodetext.html'")
