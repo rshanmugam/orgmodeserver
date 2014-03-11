@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-
+import Data.List (isSuffixOf)
 import qualified System.Directory as SD
 import System.Console.ArgParser
 import qualified Web.Scotty as SC
@@ -18,24 +18,37 @@ main = do
 
 server :: String -> SC.ScottyM ()
 server root = do
+
   SC.middleware $ staticPolicy
     (   noDots
     >-> hasPrefix "static/"
     >-> addBase root
     )
+
   SC.get "/" $ do
     SC.setHeader "Content-Type" "text/html"
     SC.file $ norm "index.html"
-  SC.get "/doc" $ do
-    doc <- liftIO $ parseOrgFile (norm "docs/evaluations.org") ["TODO", "DONE"]
+
+  SC.get "/docs" $ do
+    files <- liftIO getOrgFiles
+    SC.json files
+
+  SC.get "/doc/:docName" $ do
+    name <- SC.param "docName"
+    doc <- liftIO $ readOrgFile name
     either (SC.text . T.pack . show) SC.json doc
+
  where
+
   norm path = root ++ "/" ++ path
 
-data Cmd = Cmd
-    { cmdRootPath :: String
-    , cmdPort :: Int
-    }
+  getOrgFiles = do
+    content <- SD.getDirectoryContents $ root ++ "/docs"
+    return $ filter (isSuffixOf ".org") content
+
+  readOrgFile name = parseOrgFile (norm $ "docs/" ++ name) ["TODO", "DONE"]
+
+data Cmd = Cmd String Int
 
 cmdParser :: ParserSpec Cmd
 cmdParser = Cmd
