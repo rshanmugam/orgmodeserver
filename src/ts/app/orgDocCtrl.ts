@@ -3,6 +3,8 @@ enum FoldStatus { FOLDED, CHILDREN, SUBTREE };
 angular.module('myApp')
     .controller('orgDocCtrl', ["$scope", "$http", "$routeParams", function($scope, $http, $routeParams) {
 
+        $scope.docName = $routeParams.docName;
+
         $http.get('/doc/' + $routeParams.docName)
         .success(function(data, status, headers, config) {
             $scope.doc = data.Outline;
@@ -45,5 +47,5 @@ angular.module('myApp')
 
         $scope.foldCycle = function (node) {
             setStatus(node, nextStatus(node.FoldStatus));
-        }
+        };
     }])

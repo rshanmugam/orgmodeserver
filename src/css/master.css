@@ -13,3 +13,27 @@
 .orgprops {
     width: 300px;
 }
+
+.orgdoc ul {
+    padding-left: 20px;
+}
+
+.orgchildren {
+    list-style-type: none;
+}
+
+.orgdoc span.glyphicon {
+    margin-right: 10px;
+}
+
+.orgcontent {
+    padding-left: 30px;
+}
+
+.orgdoc .btn-primary>a {
+    color: #fff;
+}
+
+.orgdoc .btn-default>a {
+    color: #333;
+}

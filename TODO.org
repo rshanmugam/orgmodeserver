@@ -40,8 +40,15 @@
 ** DONE on click -> view file
    CLOSED: [2014-03-11 mar. 17:01]
    rest url /doc/:id
+** DONE allow to click on a tag
+   CLOSED: [2014-03-12 mer. 10:32]
+   display a list of nodes with this tag (rest url: /doc/:id/tag/:tag)
+** DONE allow to click on a status
+   CLOSED: [2014-03-12 mer. 14:45]
+** DONE "back to doc" button
+   CLOSED: [2014-03-12 mer. 14:45]
+** TODO move fold click to an icon on the left
+** TODO allow to focus on a node
 ** TODO manage time aggregation in properties
 ** TODO show/hide properties
 ** TODO allow comment on node
-** TODO allow to click on a tag
-   display a list of nodes with this tag (rest url: /doc/:id/tag/:tag)

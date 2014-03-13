@@ -19,5 +19,8 @@ angular.module(
         $routeProvider.when(
             '/doc/:docName',
             {templateUrl: '/static/views/orgdoc.html'});
+        $routeProvider.when(
+            '/doc/:docName/focus',
+            {templateUrl: '/static/views/orgdocfocus.html'});
         $routeProvider.otherwise({redirectTo: '/home'});
     }]);
