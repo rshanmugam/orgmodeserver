@@ -47,7 +47,8 @@
    CLOSED: [2014-03-12 mer. 14:45]
 ** DONE "back to doc" button
    CLOSED: [2014-03-12 mer. 14:45]
-** TODO move fold click to an icon on the left
+** DONE move fold click to an icon on the left
+   CLOSED: [2014-03-13 jeu. 10:29]
 ** TODO allow to focus on a node
 ** TODO manage time aggregation in properties
 ** TODO show/hide properties
